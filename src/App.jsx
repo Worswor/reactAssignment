@@ -9,12 +9,13 @@ function App() {
 
   return (
     <Router>
+      <NaNvbar />
       <Routes>
-        <NaNvbar />
         <Route path="/" element={<onlineShop />} />
         <Route path="/shop" element={<ShopPage />} />
         <Route path="/cart" element={<CartPage />} />
       </Routes>
+      <Footer />
     </Router>
   )
 }
