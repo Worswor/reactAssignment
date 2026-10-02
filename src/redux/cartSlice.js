@@ -12,18 +12,23 @@ const cartSlice = createSlice({
     //Adds items
     addToCart: (state, action) => {
       const existingItem = state.items.find
-      (item => item.id === action.payload.id);
+        (item => item.id === action.payload.id);
+
       // Increment quantity if item already exists, otherwise add new item
       if (existingItem) {
-        existingItem.quantity += action.payload.quantity;
+        existingItem.quantity += 1;
       } else {
         state.items.push({ ...action.payload, quantity: 1 });
       }
     },
-    //Removes items
+
+    //Removes one of an item from the cart
     removeFromCart: (state, action) => {
-      const existingItem = state.items.find((item) => item.id === action.payload.id);
+      const existingItem = state.items.find(
+        (item) => item.id === action.payload.id);
+
       if (!existingItem) return; // If item doesn't exist, do nothing
+      
       if (existingItem.quantity === 1) {
         state.items = state.items.filter(
           item => item.id !== action.payload.id);
@@ -31,11 +36,6 @@ const cartSlice = createSlice({
         existingItem.quantity -= 1;
       }
     },
-    //Deletes items
-/*     deleteFromCart: (state, action) => {
-      state.items = state.items.filter
-      (item => item.id !== action.payload.id);
-    }, */
 
     // Clears the cart
     clearCart: (state) => {
