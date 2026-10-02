@@ -1,23 +1,23 @@
 import { useState } from 'react'
 import { Route, Router } from 'react-router-dom'
-import onlineShop from './OnlineShop'
+import OnlineShop from './OnlineShop'
 import ShopPage from './pages/ShopPage'
 import CartPage from './pages/CartPage'
+import Navbar from './components/Navbar'
+import Footer from './components/Footer'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <Router>
-      <NaNvbar />
+      <Navbar />
       <Routes>
-        <Route path="/" element={<onlineShop />} />
+        <Route path="/" element={<OnlineShop />} />
         <Route path="/shop" element={<ShopPage />} />
         <Route path="/cart" element={<CartPage />} />
       </Routes>
       <Footer />
     </Router>
-  )
+  );
 }
 
-export default App
+export default App;

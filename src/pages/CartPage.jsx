@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { removeFromCart, clearCart } from "../redux/cartSlice";
 
-function Cart() {
+function CartPage() {
   const cartItems = useSelector((state) => state.cart.items);
   const dispatch = useDispatch();
 
@@ -28,4 +28,4 @@ function Cart() {
   );
 }
 
-export default Cart;
+export default CartPage;
