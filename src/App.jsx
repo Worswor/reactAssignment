@@ -1,5 +1,6 @@
 import { useState } from 'react'
-import { Route, Router } from 'react-router-dom'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+
 import OnlineShop from './OnlineShop'
 import ShopPage from './pages/ShopPage'
 import CartPage from './pages/CartPage'
@@ -8,7 +9,7 @@ import Footer from './components/Footer'
 
 function App() {
   return (
-    <Router>
+    <BrowserRouter>
       <Navbar />
       <Routes>
         <Route path="/" element={<OnlineShop />} />
@@ -16,7 +17,7 @@ function App() {
         <Route path="/cart" element={<CartPage />} />
       </Routes>
       <Footer />
-    </Router>
+    </BrowserRouter>
   );
 }
 

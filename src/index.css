@@ -50,8 +50,35 @@
   }
 }
 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   margin: 0;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 16px;
+  background: #4b5c5f;
+  color: var(--bg);
+  font-size: 16px;
+}
+
+button:hover {
+  background: #3a4b4e;
+}
+
+.page {
+  max-width: 1126px;
+  margin: 0 auto;
+  padding: 0 20px;
+  min-height: 100svh;
 }
 
 #root {

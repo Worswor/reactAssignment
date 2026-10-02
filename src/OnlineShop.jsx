@@ -1,15 +1,18 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 
 function OnlineShop() {
-    const profit = useSelector((state) => state.profit?.value ?? 0);
-    const dispatch = useDispatch();
+  return (
+    <div className="home-page">
+      <h1>Electronic Shop</h1>
 
-    return (
-        <div style={{ textAlign: "center", marginTop: "20px" }}>
-            <h1>Online Shop</h1>
-        </div>
-    );
+      <p>Welcome to my online shop! :D</p>
+
+      <Link to="/shop">
+        <button>Start Shopping</button>
+      </Link>
+    </div>
+  );
 }
 
 export default OnlineShop;

@@ -1,31 +1,29 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../redux/cartSlice"; // Ensure correct import
+import products from "../redux/products";
 
 function ShopPage() {
   // Get the dispatch function from the Redux store
   const dispatch = useDispatch();
-  // Get the items from the cart state in the Redux store
-  const items = useSelector((state) => state.cart.items);
-
 
   return (
-    <div style={{ textAlign: "center", marginTop: "20px" }}>
-      <h1>Online Shop</h1>
-      <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}>
-        {items.length === 0 ? (
-          <p>Loading Items...</p>
-        ) : (
-          items.map(item => (
-            <div key={item.id} style={{ margin: "10px", border: "1px solid #ccc", padding: "10px" }}>
-              <img src={item.image} alt={item.name} width="100" />
-              <h3>{item.name}</h3>
-              <button onClick={() => dispatch(addToCart(item))}>
-                Add to Cart
-              </button>
-            </div>
-          ))
-        )}
+    <div className="page">
+      <h1>Electronic Shop</h1>
+      {/* Render the product grid */}
+      <div className="product-grid">
+        {/* Map through the products array and render each product */}
+        {products.map((product) => (
+          // Each product card has a unique key based on the product's id
+          <div key={product.id} className="product-card">
+            <img src={product.image} alt={product.name} />
+            <h3>{product.name}</h3>
+            <p>${product.price.toFixed(2)}</p>
+            <button onClick={() => dispatch(addToCart(product))}>
+              Add to Cart
+            </button>
+          </div>
+        ))}
       </div>
     </div>
   );
